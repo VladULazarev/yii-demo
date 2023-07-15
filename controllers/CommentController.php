@@ -8,13 +8,12 @@ use app\models\Comment;
 
 class CommentController extends Controller
 {
-   /**
+    /**
      * Store a new message from the 'Comment form'
-     * @see web\js\custom.js --- 4. Comment form
-     *
      * @return string
+     * @see web\js\custom.js --- 4. Comment form
      */
-    public function actionStore()
+    public function actionStore(): string
     {
         $request = Yii::$app->request;
 
@@ -58,6 +57,10 @@ class CommentController extends Controller
     /**
      * Find the amount of the same value in the current column
      *
+     * @param $columnName_1
+     * @param $value_1
+     * @param $columnName_2
+     * @param $value_2
      * @return int
      */
     public function test($columnName_1, $value_1,  $columnName_2, $value_2): int
