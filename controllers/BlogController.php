@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use yii\db\ActiveRecord;
 use yii\web\Controller;
 use app\models\Blog;
 use app\models\Comment;
@@ -10,12 +11,12 @@ use yii\data\Pagination;
 
 class BlogController extends Controller
 {
-   /**
+    /**
      * Displays all blog posts.
      *
-     * @return view
+     * @return string
      */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         $query = Blog::find()->orderBy('id DESC')->with('category');
 
@@ -32,12 +33,13 @@ class BlogController extends Controller
         ]);
     }
 
-   /**
+    /**
      * Displays one blog post
      *
-     * @return view
+     * @param $slug
+     * @return string
      */
-    public function actionShow($slug)
+    public function actionShow($slug): string
     {
         # Posts for 'Aside' bar
         $aside_posts = self::getPostsForAsideBar();
@@ -56,9 +58,10 @@ class BlogController extends Controller
     /**
      * Displays blog posts by category
      *
-     * @return view
+     * @param $slug
+     * @return string
      */
-    public function actionBycategory($slug)
+    public function actionBycategory($slug): string
     {
 
         $query = Blog::find()
@@ -82,9 +85,10 @@ class BlogController extends Controller
     /**
      * Displays blog posts by a tag
      *
-     * @return view
+     * @param $tag
+     * @return string
      */
-    public function actionBytag($tag)
+    public function actionBytag($tag): string
     {
         $query = Blog::find()->where(['like', 'tags', "%$tag%", false ])->with('category');
 
@@ -144,9 +148,9 @@ class BlogController extends Controller
     /**
      * Get posts for 'Aside' bar
      *
-     * @return array of found posts
+     * @return array|ActiveRecord[]
      */
-    public static function getPostsForAsideBar()
+    public static function getPostsForAsideBar(): array
     {
         $aside_posts = Blog::find()->orderBy('id DESC')->limit(3)->with('category')->all();
         return $aside_posts;
@@ -155,9 +159,10 @@ class BlogController extends Controller
     /**
      * Get posts and pages
      *
-     * @return array of found posts and amount of pages
+     * @param $query
+     * @return array
      */
-    public static function getPostsAndPages($query)
+    public static function getPostsAndPages($query): array
     {
         $countQuery = clone $query;
 
