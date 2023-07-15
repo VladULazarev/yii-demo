@@ -7,12 +7,12 @@ use app\models\Blog;
 
 class HomeController extends Controller
 {
-   /**
+    /**
      * Displays the 'Home' page.
      *
-     * @return view
+     * @return string
      */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         $posts = Blog::find()->orderBy('id DESC')->limit(3)->with('category')->all();
 
@@ -32,9 +32,9 @@ class HomeController extends Controller
     /**
      * Displays the 'About' page.
      *
-     * @return view
+     * @return string
      */
-    public function actionAbout()
+    public function actionAbout(): string
     {
         return $this->render('about');
     }
