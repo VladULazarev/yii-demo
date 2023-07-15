@@ -7,16 +7,16 @@ use yii\web\Controller;
 class ValidatorController extends Controller
 {
     /** @var string pattern for name */
-    private static $namePattern = '/^[\w. \-]{2,30}$/u';
+    private static string $namePattern = '/^[\w. \-]{2,30}$/u';
 
     /** @var string pattern for email */
-    private static $emailPattern = '/^[\w.\-]{2,30}@[\w\-]{2,30}\.[A-Za-z]{2,8}$/';
+    private static string $emailPattern = '/^[\w.\-]{2,30}@[\w\-]{2,30}\.[A-Za-z]{2,8}$/';
 
     /** @var string pattern for subject */
-    private static $subjectPattern = '/^[\w.!?\, \-\']{2,50}$/u';
+    private static string $subjectPattern = '/^[\w.!?\, \-\']{2,50}$/u';
 
     /** @var string pattern for message */
-    private static $messagePattern = '/^[\w.!?\, \-\']{3,500}$/u';
+    private static string $messagePattern = '/^[\w.!?\, \-\']{3,500}$/u';
 
     /**
      * Check user's name
