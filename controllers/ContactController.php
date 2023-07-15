@@ -16,9 +16,9 @@ class ContactController extends Controller
     /**
      * Displays 'Contact page'.
      *
-     * @return view
+     * @return string
      */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         return $this->render('index');
     }
@@ -28,7 +28,7 @@ class ContactController extends Controller
      *
      * @return string
      */
-    public function actionStore()
+    public function actionStore(): string
     {
         $request = Yii::$app->request;
 
@@ -90,9 +90,11 @@ class ContactController extends Controller
     /**
      * Find the amount of the same value in the current column
      *
+     * @param $value
+     * @param $columnName
      * @return int
      */
-    public function amountOfValueInCurrentColumn($value, $columnName)
+    public function amountOfValueInCurrentColumn($value, $columnName): int
     {
         $amount = Contact::find()->where([$columnName => $value])->all();
         return count($amount);
@@ -100,11 +102,12 @@ class ContactController extends Controller
 
     /**
      * Send the email to user (We confirm we've received user's message)
-     * @see the email template in: 'views\mail\email.php'
-     *
+     * @param $userName
+     * @param $email
      * @return void
+     * @see the email template in: 'views\mail\email.php'
      */
-    public static function sendTestEmail($userName, $email)
+    public static function sendTestEmail($userName, $email): void
     {
         Yii::$app->mailer->compose('/mail/email',
         [
