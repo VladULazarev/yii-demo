@@ -12,7 +12,7 @@ https://www.free-css.com/free-css-templates/page270/stand-blog
 Протестировать приложение online можно здесь:
 
 ~~~
-https://yii-demo.getyoursite.info/
+http://yii-demo.vlgroove.space/
 ~~~
 
 ## Как работают формы
@@ -47,7 +47,7 @@ https://www.free-css.com/free-css-templates/page270/stand-blog
 You can test the project online here:
 
 ~~~
-https://yii-demo.getyoursite.info/
+http://yii-demo.vlgroove.space/
 ~~~
 
 ## How the forms work on the site
